@@ -29,7 +29,7 @@ const QUICK_OPTS = {
 Page({
   data: {
     tool: null, input: '', output: '', generating: false, tokens: null, latency: null, fav: false,
-    quickOpts: [], selectedOpt: '', relatedTools: [],
+    quickOpts: [], selectedOpt: '', relatedTools: [], recording: false,
   },
 
   onLoad(opts) { if (opts.id) this.loadTool(opts.id); },
@@ -57,6 +57,31 @@ Page({
   },
 
   onInput(e) { this.setData({ input: e.detail.value }); },
+
+  
+  startVoice() {
+    this.setData({ recording: true });
+    this.recorder = wx.getRecorderManager();
+    this.recorder.onStop((res) => {
+      this.setData({ recording: false });
+      if (!res.tempFilePath) return;
+      wx.showLoading({ title: '识别中...' });
+      const plugin = requirePlugin('YzsSpeech');
+      if (plugin && plugin.recognize) {
+        plugin.recognize({
+          filePath: res.tempFilePath,
+          success: (r) => { wx.hideLoading(); if (r.text) this.setData({ input: (this.data.input + r.text).trim() }); },
+          fail: () => { wx.hideLoading(); wx.showToast({ title: '识别失败', icon: 'none' }); },
+        });
+      } else {
+        wx.hideLoading();
+        wx.showToast({ title: '语音插件未就绪', icon: 'none' });
+      }
+    });
+    this.recorder.onError(() => { this.setData({ recording: false }); });
+    this.recorder.start({ format: 'mp3', duration: 30000, sampleRate: 16000, numberOfChannels: 1, encodeBitRate: 48000 });
+  },
+  stopVoice() { if (this.data.recording && this.recorder) this.recorder.stop(); },
 
   selectOpt(e) {
     const opt = e.currentTarget.dataset.opt;

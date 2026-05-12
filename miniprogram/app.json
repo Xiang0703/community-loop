@@ -52,5 +52,11 @@
     "comment-item": "/components/comment-item/comment-item"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "YzsSpeech": {
+      "version": "1.0.0",
+      "provider": "wx49c2b0b4e2b46c85"
+    }
+  }
 }

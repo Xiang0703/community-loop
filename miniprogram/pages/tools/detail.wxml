@@ -10,7 +10,12 @@
 
   <view class="input-section">
     <text class="input-label">{{tool.input_label || '请输入内容'}}</text>
-    <textarea class="input-area" value="{{input}}" placeholder="请输入你的需求..." maxlength="1000" auto-height bindinput="onInput" />
+    <view class="input-row">
+      <textarea class="input-area" value="{{input}}" placeholder="请输入你的需求..." maxlength="1000" auto-height bindinput="onInput" />
+      <button class="mic-btn {{recording ? 'active' : ''}}" bindtouchstart="startVoice" bindtouchend="stopVoice">
+        <text>{{recording ? '🔴' : '🎤'}}</text>
+      </button>
+    </view>
 
     <view class="example-box" wx:if="{{tool.input_hint}}">
       <view class="example-header">
