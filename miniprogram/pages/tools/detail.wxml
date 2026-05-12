@@ -1,0 +1,35 @@
+<view class="page" wx:if="{{tool}}">
+  <view class="header">
+    <text class="header-icon">{{tool.icon}}</text>
+    <text class="header-name">{{tool.name}}</text>
+    <text class="header-desc">{{tool.description || '输入内容，AI 帮你生成'}}</text>
+  </view>
+
+  <!-- 输入区 -->
+  <view class="input-section">
+    <text class="input-label">{{tool.input_label || '请输入内容'}}</text>
+    <textarea class="input-area" value="{{input}}"
+              placeholder="{{tool.input_hint || '请描述你的需求...'}}"
+              maxlength="1000" auto-height bindinput="onInput" />
+    <button class="btn-primary" loading="{{generating}}"
+            disabled="{{input.length < 2 || generating}}"
+            bindtap="generate">
+      {{generating ? 'AI 生成中...' : '开始生成'}}
+    </button>
+  </view>
+
+  <!-- 结果区 -->
+  <view wx:if="{{output}}" class="result-section">
+    <view class="result-header">
+      <text class="result-title">✨ 生成结果</text>
+      <text wx:if="{{tokens}}" class="result-meta">{{tokens.prompt + tokens.completion}} tokens · {{latency}}ms</text>
+    </view>
+    <view class="result-content">
+      <text class="result-text">{{output}}</text>
+    </view>
+    <view class="result-actions">
+      <button class="btn-secondary" bindtap="copyResult">📋 复制</button>
+      <button class="btn-primary btn-sm" bindtap="regenerate">🔄 重新生成</button>
+    </view>
+  </view>
+</view>

@@ -34,6 +34,11 @@ function buildQuery(params) {
 }
 
 module.exports = {
+  // AI 工具箱
+  getAITools: () => request('/ai-tools'),
+  getAITool: (id) => request('/ai-tools/' + id),
+  generateAITool: (id, input) => request('/ai-tools/' + id + '/generate', 'POST', { input }),
+
   login: (code, cid) => request('/auth/login', 'POST', { code, community_id: cid }),
   updateProfile: (data) => request('/auth/profile', 'PUT', data),
   getTickets: (p) => request('/tickets?' + buildQuery(p)),

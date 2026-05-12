@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/tools/tools",
+    "pages/tools/detail",
     "pages/detail/detail",
     "pages/messages/messages",
     "pages/profile/profile"
@@ -22,6 +24,12 @@
         "text": "首页",
         "iconPath": "assets/tab-home.png",
         "selectedIconPath": "assets/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/tools/tools",
+        "text": "工具箱",
+        "iconPath": "assets/tab-tools.png",
+        "selectedIconPath": "assets/tab-tools-active.png"
       },
       {
         "pagePath": "pages/messages/messages",

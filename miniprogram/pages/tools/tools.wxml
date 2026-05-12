@@ -1,0 +1,18 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading">
+    <view class="skeleton" style="height:120rpx;margin:16rpx 24rpx" wx:for="{{[1,2,3]}}" wx:key="*this"></view>
+  </view>
+
+  <block wx:else>
+    <view class="section" wx:for="{{groups}}" wx:key="category">
+      <view class="section-title">{{item.name}}</view>
+      <view class="tool-grid">
+        <view class="tool-card" wx:for="{{item.tools}}" wx:for-item="tool" wx:key="id"
+              data-id="{{tool.id}}" bindtap="goTool">
+          <text class="tool-icon">{{tool.icon}}</text>
+          <text class="tool-name">{{tool.name}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

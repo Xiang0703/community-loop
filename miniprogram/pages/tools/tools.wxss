@@ -1,0 +1,13 @@
+.page { padding: 16rpx 0 32rpx; }
+.section { margin-bottom: 32rpx; }
+.section-title { font-size: 30rpx; font-weight: 600; padding: 0 32rpx 16rpx; color: var(--color-text); }
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16rpx; padding: 0 24rpx; }
+.tool-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24rpx 8rpx; background: var(--color-card); border-radius: 16rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,.04); transition: transform .15s;
+}
+.tool-card:active { transform: scale(.95); }
+.tool-icon { font-size: 44rpx; margin-bottom: 12rpx; }
+.tool-name { font-size: 24rpx; color: var(--color-text); text-align: center; }
+.loading { padding: 24rpx; }

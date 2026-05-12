@@ -9,6 +9,8 @@ const { errorHandler } = require('./utils/errors');
 const authRoutes = require('./routes/auth');
 const ticketRoutes = require('./routes/tickets');
 const notificationRoutes = require('./routes/notifications');
+const adminRoutes = require('./routes/admin');
+const aiToolsRoutes = require('./routes/aiTools');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +34,8 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/tickets', ticketRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/ai-tools', aiToolsRoutes);
 
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not Found' });
