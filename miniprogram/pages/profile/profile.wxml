@@ -1,0 +1,43 @@
+<view class="page">
+  <view wx:if="{{!user}}" class="login-prompt">
+    <text class="lp-icon">👤</text>
+    <text class="lp-text">登录即可查看我的工单</text>
+    <button class="btn-primary lp-btn" bindtap="doLogin">微信一键登录</button>
+  </view>
+
+  <block wx:else>
+    <view class="profile-card card">
+      <image class="p-avatar" src="{{user.avatar_url || '/assets/default-avatar.png'}}" />
+      <text class="p-name">{{user.nickname || '邻居'}}</text>
+      <text class="p-addr">{{user.building}} {{user.room_number}}</text>
+    </view>
+
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-num">{{submittedCount}}</text>
+        <text class="stat-label">我提交的</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-num">{{resolvedCount}}</text>
+        <text class="stat-label">已解决</text>
+      </view>
+    </view>
+
+    <text class="section-label">我的工单</text>
+    <view wx:for="{{myTickets}}" wx:key="id" class="my-ticket" data-id="{{item.id}}" bindtap="goDetail">
+      <text class="mt-cat">{{item.ai_category || '未分类'}}</text>
+      <text class="mt-title ellipsis">{{item.title || item.description}}</text>
+      <view class="badge badge-{{item.status}}">
+        {{item.status === 'open' ? '待处理' : '已解决'}}
+      </view>
+    </view>
+    <view class="view-all" bindtap="goMyTickets">查看全部 →</view>
+
+    <view class="menu-list">
+      <view class="menu-item">⚙️ 设置</view>
+      <view class="menu-item">❓ 帮助与反馈</view>
+      <view class="menu-item">ℹ️ 关于</view>
+    </view>
+  </block>
+</view>

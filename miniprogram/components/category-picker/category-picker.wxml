@@ -1,0 +1,7 @@
+<view class="cp-grid">
+  <view class="cp-item {{selected === item.id ? 'active' : ''}}"
+        wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="select">
+    <text class="cp-icon">{{item.icon}}</text>
+    <text class="cp-name">{{item.name}}</text>
+  </view>
+</view>

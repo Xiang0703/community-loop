@@ -1,0 +1,8 @@
+<view class="comment-item">
+  <image class="c-avatar" src="{{comment.user.avatar_url || '/assets/default-avatar.png'}}" />
+  <view class="c-body">
+    <text class="c-name">{{comment.user.nickname || '邻居'}}</text>
+    <text class="c-content">{{comment.content}}</text>
+    <text class="c-time">{{comment.created_at}}</text>
+  </view>
+</view>

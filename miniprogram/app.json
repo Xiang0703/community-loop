@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/messages/messages",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "邻里事",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F2F2F7"
+  },
+  "tabBar": {
+    "color": "#8E8E93",
+    "selectedColor": "#0A84FF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tab-home.png",
+        "selectedIconPath": "assets/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息",
+        "iconPath": "assets/tab-message.png",
+        "selectedIconPath": "assets/tab-message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tab-profile.png",
+        "selectedIconPath": "assets/tab-profile-active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ticket-card": "/components/ticket-card/ticket-card",
+    "category-picker": "/components/category-picker/category-picker",
+    "submit-panel": "/components/submit-panel/submit-panel",
+    "comment-item": "/components/comment-item/comment-item"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

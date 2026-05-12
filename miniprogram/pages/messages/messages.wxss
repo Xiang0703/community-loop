@@ -1,0 +1,14 @@
+.page { padding-bottom: 32rpx; }
+.msg-header { display: flex; justify-content: space-between; padding: 24rpx 32rpx 12rpx; font-size: 26rpx; color: var(--color-text-secondary); }
+.read-all { color: var(--color-primary); }
+.msg-item { display: flex; align-items: center; padding: 24rpx 32rpx; gap: 16rpx; border-bottom: 1rpx solid #F2F2F7; position: relative; }
+.msg-item.unread { background: #F8FAFF; }
+.unread-dot { width: 12rpx; height: 12rpx; border-radius: 50%; background: var(--color-primary); flex-shrink: 0; }
+.msg-content { flex: 1; }
+.msg-title { font-size: 28rpx; display: block; }
+.msg-body { font-size: 26rpx; color: var(--color-text-secondary); display: block; margin-top: 4rpx; }
+.msg-time { font-size: 22rpx; color: var(--color-text-tertiary); display: block; margin-top: 8rpx; }
+.msg-arrow { font-size: 32rpx; color: var(--color-text-tertiary); }
+.empty-state { display: flex; flex-direction: column; align-items: center; padding: 120rpx 0; }
+.empty-icon { font-size: 80rpx; }
+.empty-title { margin-top: 24rpx; font-size: 28rpx; color: var(--color-text-secondary); }

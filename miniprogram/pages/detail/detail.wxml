@@ -1,0 +1,57 @@
+<view class="page-detail" wx:if="{{ticket}}">
+  <view class="user-card card">
+    <image class="avatar" src="{{ticket.user.avatar_url || '/assets/default-avatar.png'}}" mode="aspectFill" />
+    <view class="user-info">
+      <text class="user-name">{{ticket.user.nickname || '邻居'}}</text>
+      <text class="user-addr">{{ticket.user.building}} {{ticket.user.room_number}}</text>
+    </view>
+  </view>
+
+  <view class="content-section">
+    <view class="tag-row">
+      <view class="badge badge-{{ticket.status}}">{{statusText(ticket.status)}}</view>
+      <text class="cat-tag">{{ticket.category.icon}} {{ticket.category.name}}</text>
+    </view>
+    <view class="desc">{{ticket.description}}</view>
+    <view class="meta-row">
+      <text wx:if="{{ticket.location_desc}}">📍 {{ticket.location_desc}}</text>
+      <text>⏱ {{ticket.created_at}}</text>
+    </view>
+  </view>
+
+  <view class="timeline-section">
+    <text class="section-title">时间线</text>
+    <view class="timeline">
+      <view class="tl-item" wx:for="{{logs}}" wx:key="id">
+        <view class="tl-dot {{item.action === 'created' ? 'active' : ''}}"></view>
+        <view class="tl-content">
+          <text class="tl-action">{{item.action === 'created' ? '提交问题' : item.action === 'resolved' ? '标记已解决' : '新评论'}}</text>
+          <text wx:if="{{item.remark}}" class="tl-remark">{{item.remark}}</text>
+          <text class="tl-time">{{item.created_at}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="comments-section">
+    <text class="section-title">评论 ({{comments.length}})</text>
+    <view class="comment-item" wx:for="{{comments}}" wx:key="id">
+      <image class="c-avatar" src="{{item.user.avatar_url || '/assets/default-avatar.png'}}" />
+      <view class="c-body">
+        <text class="c-name">{{item.user.nickname || '邻居'}}</text>
+        <text class="c-content">{{item.content}}</text>
+        <text class="c-time">{{item.created_at}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <input class="comment-input" value="{{commentText}}" placeholder="写评论..."
+           bindinput="onInput" confirm-type="send" bindconfirm="sendComment" />
+    <button class="send-btn" bindtap="sendComment">发送</button>
+  </view>
+
+  <view wx:if="{{isOwner && ticket.status !== 'resolved'}}" class="resolve-section">
+    <button class="btn-primary resolve-btn" bindtap="resolveTicket">✅ 标记已解决</button>
+  </view>
+</view>

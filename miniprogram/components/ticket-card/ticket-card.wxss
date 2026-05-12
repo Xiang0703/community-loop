@@ -1,0 +1,9 @@
+.ticket-card:active { transform: scale(0.98); }
+.ticket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12rpx; }
+.ticket-category { display: flex; align-items: center; gap: 8rpx; }
+.category-icon { font-size: 32rpx; }
+.category-name { font-size: 24rpx; font-weight: 600; color: var(--color-text-secondary); }
+.ticket-title { font-size: 30rpx; font-weight: 600; margin-bottom: 8rpx; }
+.ticket-desc { font-size: 26rpx; color: var(--color-text-secondary); margin-bottom: 12rpx; }
+.ticket-meta { display: flex; gap: 16rpx; font-size: 22rpx; color: var(--color-text-tertiary); }
+.meta-item { flex-shrink: 0; }

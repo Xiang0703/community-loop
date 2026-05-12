@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "邻里事",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "ticket-card": "/components/ticket-card/ticket-card",
+    "submit-panel": "/components/submit-panel/submit-panel"
+  }
+}

@@ -1,0 +1,18 @@
+<view class="ticket-card card" data-id="{{ticket.id}}">
+  <view class="ticket-header">
+    <view class="ticket-category">
+      <text class="category-icon">{{ticket.category.icon || '📋'}}</text>
+      <text class="category-name">{{ticket.ai_category || ticket.category.name || '未分类'}}</text>
+    </view>
+    <view class="badge badge-{{ticket.status}}">
+      {{ticket.status === 'open' ? '待处理' : ticket.status === 'resolved' ? '已解决' : ticket.status}}
+    </view>
+  </view>
+  <view class="ticket-title">{{ticket.title || ticket.description}}</view>
+  <view class="ticket-desc ellipsis-2">{{ticket.description}}</view>
+  <view class="ticket-meta">
+    <text wx:if="{{ticket.location_desc}}" class="meta-item">📍 {{ticket.location_desc}}</text>
+    <text class="meta-item">{{timeAgo(ticket.created_at)}}</text>
+    <text wx:if="{{ticket.comment_count > 0}}" class="meta-item">💬 {{ticket.comment_count}}</text>
+  </view>
+</view>

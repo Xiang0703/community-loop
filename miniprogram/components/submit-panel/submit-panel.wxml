@@ -1,0 +1,38 @@
+<view wx:if="{{show}}" class="overlay" bindtap="onClose">
+  <view class="panel" catchtap="noop">
+    <view class="panel-header">
+      <view class="drag-bar"></view>
+      <text class="panel-title">发布新问题</text>
+      <view class="close-btn" bindtap="onClose"><text>✕</text></view>
+    </view>
+    <scroll-view class="panel-body" scroll-y>
+      <view class="section">
+        <text class="section-label">选择分类</text>
+        <view class="cat-grid">
+          <view class="cat-btn {{selectedCategory === item.id ? 'sel' : ''}}"
+                wx:for="{{categories}}" wx:key="id" data-id="{{item.id}}" bindtap="selectCat"
+                style="background:{{item.bg}}">
+            <text class="cat-icon">{{item.icon}}</text>
+            <text class="cat-name">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="section">
+        <text class="section-label">描述问题</text>
+        <view class="ta-wrap">
+          <textarea class="ta" value="{{description}}" placeholder="说说具体情况...（至少10个字）"
+                    maxlength="500" auto-height bindinput="onInput" />
+          <text class="char-count">{{description.length}}/500</text>
+        </view>
+      </view>
+      <view class="section">
+        <text class="section-label">📍 位置（可选）</text>
+        <input class="input" value="{{location}}" placeholder="如：3号楼B1层车库" bindinput="onLocInput" />
+      </view>
+    </scroll-view>
+    <view class="panel-footer">
+      <button class="btn-primary" disabled="{{description.length < 10 || submitting}}"
+              loading="{{submitting}}" bindtap="onSubmit">提交问题</button>
+    </view>
+  </view>
+</view>

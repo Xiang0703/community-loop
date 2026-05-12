@@ -1,0 +1,5 @@
+.cp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16rpx; padding: 16rpx; }
+.cp-item { display: flex; flex-direction: column; align-items: center; padding: 24rpx; border-radius: 16rpx; background: #F2F2F7; border: 2rpx solid transparent; }
+.cp-item.active { border-color: var(--color-primary); background: #E3F2FD; }
+.cp-icon { font-size: 44rpx; }
+.cp-name { margin-top: 8rpx; font-size: 24rpx; }

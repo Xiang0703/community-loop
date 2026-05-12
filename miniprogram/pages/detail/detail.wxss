@@ -1,0 +1,29 @@
+.page-detail { padding-bottom: 160rpx; }
+.user-card { display: flex; align-items: center; gap: 16rpx; margin-top: 16rpx; }
+.avatar { width: 80rpx; height: 80rpx; border-radius: 50%; background: #E5E5EA; }
+.user-name { font-size: 30rpx; font-weight: 600; display: block; }
+.user-addr { font-size: 24rpx; color: var(--color-text-secondary); }
+.content-section { padding: 24rpx 32rpx; }
+.tag-row { display: flex; gap: 12rpx; align-items: center; margin-bottom: 16rpx; }
+.cat-tag { font-size: 24rpx; color: var(--color-text-secondary); }
+.desc { font-size: 30rpx; line-height: 1.7; margin-bottom: 16rpx; }
+.meta-row { display: flex; gap: 24rpx; font-size: 24rpx; color: var(--color-text-tertiary); }
+.section-title { font-size: 30rpx; font-weight: 600; padding: 24rpx 32rpx 0; }
+.timeline { padding: 16rpx 32rpx; }
+.tl-item { display: flex; gap: 16rpx; padding: 12rpx 0; }
+.tl-dot { width: 16rpx; height: 16rpx; border-radius: 50%; background: #E5E5EA; margin-top: 8rpx; flex-shrink: 0; }
+.tl-dot.active { background: var(--color-primary); }
+.tl-action { font-size: 26rpx; font-weight: 500; display: block; }
+.tl-remark { font-size: 24rpx; color: var(--color-text-secondary); display: block; }
+.tl-time { font-size: 22rpx; color: var(--color-text-tertiary); }
+.comments-section { padding: 0 32rpx; }
+.comment-item { display: flex; gap: 12rpx; padding: 16rpx 0; border-bottom: 1rpx solid #F2F2F7; }
+.c-avatar { width: 64rpx; height: 64rpx; border-radius: 50%; background: #E5E5EA; flex-shrink: 0; }
+.c-name { font-size: 24rpx; font-weight: 600; display: block; }
+.c-content { font-size: 26rpx; display: block; margin: 4rpx 0; }
+.c-time { font-size: 22rpx; color: var(--color-text-tertiary); }
+.bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; display: flex; gap: 12rpx; padding: 16rpx 24rpx 40rpx; background: #FFF; border-top: 1rpx solid #F2F2F7; align-items: center; }
+.comment-input { flex: 1; height: 72rpx; padding: 0 20rpx; background: #F2F2F7; border-radius: 36rpx; font-size: 26rpx; }
+.send-btn { height: 72rpx; padding: 0 24rpx; background: var(--color-primary); color: #FFF; font-size: 26rpx; border-radius: 36rpx; border: none; line-height: 72rpx; }
+.resolve-section { padding: 0 32rpx 40rpx; }
+.resolve-btn { background: var(--color-success) !important; }

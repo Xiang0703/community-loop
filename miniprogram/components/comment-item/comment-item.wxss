@@ -1,0 +1,5 @@
+.comment-item { display: flex; gap: 12rpx; padding: 16rpx 0; border-bottom: 1rpx solid #F2F2F7; }
+.c-avatar { width: 64rpx; height: 64rpx; border-radius: 50%; background: #E5E5EA; flex-shrink: 0; }
+.c-name { font-size: 24rpx; font-weight: 600; display: block; }
+.c-content { font-size: 26rpx; display: block; margin: 4rpx 0; }
+.c-time { font-size: 22rpx; color: var(--color-text-tertiary); }

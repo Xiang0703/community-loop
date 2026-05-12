@@ -1,0 +1,60 @@
+page {
+  --color-primary: #0A84FF;
+  --color-success: #34C759;
+  --color-warning: #FF9500;
+  --color-danger: #FF3B30;
+  --color-bg: #F2F2F7;
+  --color-card: #FFFFFF;
+  --color-separator: #E5E5EA;
+  --color-text: #1C1C1E;
+  --color-text-secondary: #8E8E93;
+  --color-text-tertiary: #C7C7CC;
+
+  font-family: -apple-system, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 28rpx;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.5;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+.badge-open { background: #E3F2FD; color: #0A84FF; }
+.badge-processing { background: #FFF3E0; color: #FF9500; }
+.badge-resolved { background: #E8F5E9; color: #34C759; }
+
+.btn-primary {
+  display: flex; align-items: center; justify-content: center;
+  height: 96rpx;
+  background: var(--color-primary);
+  color: #FFF; font-size: 28rpx; font-weight: 600;
+  border-radius: 24rpx; border: none;
+  transition: transform 0.15s;
+}
+.btn-primary:active { transform: scale(0.97); opacity: 0.9; }
+.btn-primary[disabled] { opacity: 0.4; }
+
+.card {
+  background: var(--color-card);
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin: 0 24rpx 16rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.06);
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #E5E5EA 25%, #F2F2F7 50%, #E5E5EA 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8rpx;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
