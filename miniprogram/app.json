@@ -55,7 +55,7 @@
   "sitemapLocation": "sitemap.json",
   "plugins": {
     "YzsSpeech": {
-      "version": "1.0.0",
+      "version": "0.0.3",
       "provider": "wx49c2b0b4e2b46c85"
     }
   }
