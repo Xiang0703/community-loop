@@ -26,9 +26,6 @@
 .example-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8rpx}.example-label{font-size:24rpx;font-weight:600;color:#F59E0B}.example-copy{font-size:22rpx;color:var(--p);padding:4rpx 12rpx;background:#FFF;border-radius:8rpx}
 .example-text{font-size:24rpx;color:var(--t2);line-height:1.6}
 
-.input-wrapper{position:relative}
-50%{opacity:.7}}
-
 .quick-opts{display:flex;align-items:center;gap:12rpx;margin:12rpx 0 4rpx;flex-wrap:wrap}
 .opt-label{font-size:24rpx;color:var(--t3)}
 .opt-chip{padding:8rpx 20rpx;border-radius:20rpx;background:#F2F2F7;font-size:24rpx;color:var(--t2)}
