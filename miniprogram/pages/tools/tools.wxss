@@ -11,3 +11,10 @@
 .tool-icon { font-size: 44rpx; margin-bottom: 12rpx; }
 .tool-name { font-size: 24rpx; color: var(--color-text); text-align: center; }
 .loading { padding: 24rpx; }
+
+.fav-section{padding:0 0 16rpx}.fav-scroll{white-space:nowrap;padding:0 24rpx}
+.fav-item{display:inline-flex;flex-direction:column;align-items:center;padding:16rpx 24rpx;margin-right:12rpx;background:var(--color-card);border-radius:16rpx}
+.fav-icon{font-size:36rpx}.fav-name{font-size:22rpx;margin-top:4rpx;color:var(--text2)}
+.history-section{padding:0 24rpx 32rpx}.clear-btn{font-size:24rpx;color:var(--d);margin-left:16rpx}
+.history-item{display:flex;align-items:center;gap:12rpx;padding:16rpx 0;border-bottom:1rpx solid #F2F2F7}
+.h-icon{font-size:32rpx;flex-shrink:0}.h-body{flex:1}.h-tool{font-size:26rpx;display:block}.h-preview{font-size:24rpx;color:var(--text2);display:block;margin-top:4rpx}.h-arrow{font-size:28rpx;color:var(--text3)}

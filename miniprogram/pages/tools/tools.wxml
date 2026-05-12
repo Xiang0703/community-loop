@@ -1,4 +1,15 @@
 <view class="page">
+  <!-- 收藏区 -->
+  <view wx:if="{{favorites.length > 0}}" class="fav-section">
+    <view class="section-title">⭐ 我的收藏</view>
+    <scroll-view class="fav-scroll" scroll-x>
+      <view class="fav-item" wx:for="{{favorites}}" wx:key="id" data-id="{{item.id}}" bindtap="goTool">
+        <text class="fav-icon">{{item.icon}}</text>
+        <text class="fav-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
   <view wx:if="{{loading}}" class="loading">
     <view class="skeleton" style="height:120rpx;margin:16rpx 24rpx" wx:for="{{[1,2,3]}}" wx:key="*this"></view>
   </view>
@@ -15,4 +26,22 @@
       </view>
     </view>
   </block>
+
+  <!-- 历史记录 -->
+  <view wx:if="{{history.length > 0}}" class="history-section">
+    <view class="section-title" bindtap="toggleHistory">
+      🕐 使用历史 {{showHistory ? '▲' : '▼'}}
+      <text class="clear-btn" catchtap="clearHistory">清空</text>
+    </view>
+    <view wx:if="{{showHistory}}" class="history-list">
+      <view class="history-item" wx:for="{{history}}" wx:key="time" data-item="{{item}}" bindtap="goHistory">
+        <text class="h-icon">{{item.toolIcon}}</text>
+        <view class="h-body">
+          <text class="h-tool">{{item.toolName}}</text>
+          <text class="h-preview">{{item.output.slice(0, 60)}}...</text>
+        </view>
+        <text class="h-arrow">›</text>
+      </view>
+    </view>
+  </view>
 </view>

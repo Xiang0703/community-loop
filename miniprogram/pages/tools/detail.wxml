@@ -1,7 +1,7 @@
 <view class="page" wx:if="{{tool}}">
   <view class="header">
     <text class="header-icon">{{tool.icon}}</text>
-    <text class="header-name">{{tool.name}}</text>
+    <view class="header-row"><text class="header-name">{{tool.name}}</text><text class="fav-btn" bindtap="toggleFav">{{fav ? '⭐' : '☆'}}</text></view>
     <text class="header-desc">{{tool.description || '输入内容，AI 帮你生成'}}</text>
   </view>
 
@@ -29,6 +29,7 @@
     </view>
     <view class="result-actions">
       <button class="btn-secondary" bindtap="copyResult">📋 复制</button>
+      <button class="btn-secondary" open-type="share">💬 分享</button>
       <button class="btn-primary btn-sm" bindtap="regenerate">🔄 重新生成</button>
     </view>
   </view>
