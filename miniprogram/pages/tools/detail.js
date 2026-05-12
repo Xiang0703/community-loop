@@ -82,8 +82,8 @@ Page({
   },
 
   reEdit(action) {
-    const ctx = '基于以下内容，' + ({ expand: '扩写得更详细', shorten: '缩写得更简短', formal: '改得更正式', casual: '改得更口语化', retry: '换一种表达方式' })[action] + '：
-' + this.data.output;
+    const actions = { expand: '扩写得更详细', shorten: '缩写得更简短', formal: '改得更正式', casual: '改得更口语化', retry: '换一种表达方式' };
+    const ctx = '基于以下内容，' + (actions[action] || '换一种表达方式') + '：\n' + this.data.output;
     this.setData({ input: ctx });
     this.generate(ctx);
   },
