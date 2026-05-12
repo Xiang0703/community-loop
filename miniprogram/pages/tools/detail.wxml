@@ -8,12 +8,24 @@
   <!-- 输入区 -->
   <view class="input-section">
     <text class="input-label">{{tool.input_label || '请输入内容'}}</text>
-    <textarea class="input-area" value="{{input}}"
+    <view class="input-wrapper">
+        <textarea class="input-area" value="{{input}}"
               placeholder="请输入你的需求..."
               maxlength="1000" auto-height bindinput="onInput" />
+        <view class="voice-bar" wx:if="{{!input}}">
+          <button class="voice-btn {{recording ? "recording" : ""}}" bindtouchstart="startVoice" bindtouchend="stopVoice">
+            <text>{{recording ? "松开识别" : "🎤 按住说话"}}</text>
+          </button>
+        </view>
+        </view>
     <view class="example-box" wx:if="{{tool.input_hint}}">
         <view class="example-header"><text class="example-label">💡 示例</text><text class="example-copy" bindtap="copyExample">📋 复制</text></view>
         <text class="example-text">{{tool.input_hint}}</text>
+      </view>
+      </view>
+      <view class="quick-opts" wx:if="{{quickOpts.length > 0}}">
+        <text class="opt-label">风格</text>
+        <text class="opt-chip {{selectedOpt === item ? 'active' : ''}}" wx:for="{{quickOpts}}" wx:key="*this" data-opt="{{item}}" bindtap="selectOpt">{{item}}</text>
       </view>
       <button class="btn-primary" loading="{{generating}}"
             disabled="{{input.length < 2 || generating}}"
@@ -35,6 +47,25 @@
       <button class="btn-secondary" bindtap="copyResult">📋 复制</button>
       <button class="btn-secondary" open-type="share">💬 分享</button>
       <button class="btn-primary btn-sm" bindtap="regenerate">🔄 重新生成</button>
+      </view>
+      <view class="reedit-row">
+        <text class="reedit-label">二次编辑</text>
+        <view class="reedit-chips">
+          <text class="reedit-chip" bindtap="reEdit" data-action="expand">📝 扩写</text>
+          <text class="reedit-chip" bindtap="reEdit" data-action="shorten">📄 缩写</text>
+          <text class="reedit-chip" bindtap="reEdit" data-action="formal">👔 更正式</text>
+          <text class="reedit-chip" bindtap="reEdit" data-action="casual">💬 更口语</text>
+          <text class="reedit-chip" bindtap="reEdit" data-action="retry">🔄 换写法</text>
+        </view>
     </view>
+  </view>
+  <view class="related-section" wx:if="{{relatedTools.length > 0}}">
+    <text class="related-title">🔗 你可能还需要</text>
+    <scroll-view class="related-scroll" scroll-x>
+      <view class="related-item" wx:for="{{relatedTools}}" wx:key="id" data-id="{{item.id}}" bindtap="goRelated">
+        <text class="related-icon">{{item.icon}}</text>
+        <text class="related-name">{{item.name}}</text>
+      </view>
+    </scroll-view>
   </view>
 </view>
