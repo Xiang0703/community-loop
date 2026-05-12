@@ -27,10 +27,7 @@
 .example-text{font-size:24rpx;color:var(--t2);line-height:1.6}
 
 .input-wrapper{position:relative}
-.voice-bar{display:flex;justify-content:center;margin-top:12rpx}
-.voice-btn{width:60%;height:72rpx;background:#F2F2F7;border-radius:36rpx;display:flex;align-items:center;justify-content:center;font-size:26rpx;color:var(--t2);border:none}
-.voice-btn.recording{background:var(--d);color:#FFF;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+50%{opacity:.7}}
 
 .quick-opts{display:flex;align-items:center;gap:12rpx;margin:12rpx 0 4rpx;flex-wrap:wrap}
 .opt-label{font-size:24rpx;color:var(--t3)}

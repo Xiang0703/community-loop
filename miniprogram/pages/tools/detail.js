@@ -29,7 +29,7 @@ const QUICK_OPTS = {
 Page({
   data: {
     tool: null, input: '', output: '', generating: false, tokens: null, latency: null, fav: false,
-    quickOpts: [], selectedOpt: '', relatedTools: [], recording: false,
+    quickOpts: [], selectedOpt: '', relatedTools: [],
   },
 
   onLoad(opts) { if (opts.id) this.loadTool(opts.id); },
@@ -99,37 +99,6 @@ Page({
   regenerate() { this.generate(); },
 
   
-  onReady() {
-    this.recorder = wx.getRecorderManager();
-    this.recorder.onStop((res) => {
-      this.setData({ recording: false });
-      if (!res.tempFilePath) return;
-      wx.showLoading({ title: '识别中...' });
-      const plugin = requirePlugin('WechatSI');
-      plugin.translateVoice({
-        filePath: res.tempFilePath,
-        isShowProgressTips: 0,
-        success: (r) => {
-          wx.hideLoading();
-          if (r.result) {
-            this.setData({ input: (this.data.input + r.result).trim() });
-          }
-        },
-        fail: () => { wx.hideLoading(); wx.showToast({ title: '识别失败', icon: 'none' }); },
-      });
-    });
-    this.recorder.onError(() => { this.setData({ recording: false }); wx.showToast({ title: '录音失败', icon: 'none' }); });
-  },
-
-  startVoice() {
-    this.setData({ recording: true });
-    this.recorder.start({ format: 'mp3', duration: 30000 });
-  },
-
-  stopVoice() {
-    if (this.data.recording) this.recorder.stop();
-  },
-
   onShareAppMessage() {
     const t = this.data.tool;
     return { title: '我用【' + t.name + '】生成了：' + (this.data.output || '').slice(0, 40) + '...', path: '/pages/tools/detail?id=' + t.id };
