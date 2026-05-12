@@ -47,6 +47,7 @@ Page({
   },
 
   toggleFav() { const f = toggleFav(this.data.tool); this.setData({ fav: f }); wx.showToast({ title: f ? '已收藏' : '已取消', icon: 'none' }); },
+  copyExample() { wx.setClipboardData({ data: this.data.tool.input_hint, success: () => wx.showToast({ title: '示例已复制' }) }); },
   copyResult() { wx.setClipboardData({ data: this.data.output, success: () => wx.showToast({ title: '已复制' }) }); },
   regenerate() { this.generate(); },
 
